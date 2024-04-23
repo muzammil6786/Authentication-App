@@ -9,6 +9,10 @@ const app = express();
 app.use(express.json(),cors());
 app.use('/user', userRouter);
 
+app.get("/",userRouter,async(req,res)=>{
+    res.send({msg:"this is home route"})
+})
+
 // github
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const client_id = "9b987759816c71fff1f6";
